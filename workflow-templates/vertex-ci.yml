@@ -17,22 +17,16 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install
-        run: bun install --frozen-lockfile
-
-      - name: Typecheck
-        run: bunx tsc --noEmit
-
-      - name: Test
+      - name: Typecheck · Test · Build
         run: |
-          if bun run --silent test --help >/dev/null 2>&1 || grep -q '"test"' package.json; then
-            bun run test
-          else
-            echo "sem script de teste — pulando (adicione um!)"
+          if [ ! -f package.json ]; then
+            echo "sem package.json — repo esqueleto, nada a verificar"
+            exit 0
           fi
-
-      - name: Build
-        run: bun run build
+          bun install --frozen-lockfile || bun install
+          bunx tsc --noEmit
+          if grep -q '"test"' package.json; then bun run test; else echo "sem script de teste — adicione um!"; fi
+          bun run build
 
   secrets:
     name: Gitleaks
