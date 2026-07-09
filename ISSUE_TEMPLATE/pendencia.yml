@@ -1,0 +1,27 @@
+name: 📌 Pendência
+description: Dívida técnica, risco ou bloqueio descoberto no meio do trabalho
+labels: ["pendencia"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: O que ficou pendente
+      description: Curto e acionável — o que precisa ser feito e onde.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Tipo
+      options:
+        - "Dívida técnica (vai morder depois)"
+        - "Risco de segurança"
+        - "Bloqueio externo (cliente/fornecedor/API)"
+        - "Follow-up de entrega"
+    validations:
+      required: true
+  - type: textarea
+    id: bite
+    attributes:
+      label: O que acontece se ignorar
+      description: Uma frase — ajuda a priorizar depois.

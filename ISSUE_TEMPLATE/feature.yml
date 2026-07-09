@@ -1,0 +1,28 @@
+name: ✨ Feature
+description: Nova funcionalidade ou melhoria
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema que resolve
+      description: Qual dor real do usuário/cliente isso elimina? (Se não elimina dor, questione a feature.)
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+      description: O que construir, no menor escopo que já entrega valor.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Fora do escopo
+      description: O que explicitamente NÃO entra nesta entrega.
+  - type: textarea
+    id: done
+    attributes:
+      label: Critério de pronto
+      placeholder: "- [ ] usuário consegue X sem Y"

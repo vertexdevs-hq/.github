@@ -1,0 +1,43 @@
+name: 🐛 Bug
+description: Algo quebrado ou se comportando errado
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: O que acontece
+      description: Comportamento atual, curto e direto. Print/gravação se for visual.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: O que deveria acontecer
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Como reproduzir
+      placeholder: |
+        1. Ir em ...
+        2. Clicar em ...
+        3. Ver erro ...
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidade
+      options:
+        - "Crítico — produção parada ou dado em risco"
+        - "Alto — funcionalidade principal quebrada"
+        - "Médio — incômodo com workaround"
+        - "Baixo — cosmético"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto técnico
+      description: Logs, ambiente (prod/preview/local), suspeita de causa.

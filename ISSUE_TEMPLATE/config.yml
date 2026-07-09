@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🔒 Vulnerabilidade de segurança
+    url: https://github.com/vertexdevs-hq/.github/blob/main/SECURITY.md
+    about: Não abra issue pública — siga a política de segurança.

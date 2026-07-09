@@ -1,0 +1,7 @@
+{
+  "name": "Vertex CI",
+  "description": "Pipeline padrão Vertex: typecheck + testes + build com Bun, e varredura de segredos com gitleaks.",
+  "iconName": "vertex-ci",
+  "categories": ["TypeScript"],
+  "filePatterns": ["package.json$"]
+}
