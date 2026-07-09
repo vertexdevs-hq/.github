@@ -35,6 +35,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # binário direto (MIT) — a gitleaks-action exige licença paga para orgs
+      - name: Gitleaks scan
+        run: |
+          VER=$(curl -s https://api.github.com/repos/gitleaks/gitleaks/releases/latest | grep -oE '"tag_name": *"v[^"]+"' | grep -oE '[0-9][^"]*')
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${VER}/gitleaks_${VER}_linux_x64.tar.gz" | tar -xz gitleaks
+          ./gitleaks detect --source . --redact -v
